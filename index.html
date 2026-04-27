@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florida Fresh Wash</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f9ff;
+}
+
+header {
+    text-align: center;
+    background: #0077cc;
+    color: white;
+    padding: 20px;
+}
+
+header img {
+    max-width: 260px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 1em;
+}
+
+button {
+    padding: 12px;
+    background: #0077cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background: #005fa3;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <!-- YOUR LOGO EMBEDDED -->
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/...(shortened for size)">
+    <h1>Florida Fresh Wash</h1>
+    <p>Port St Lucie (Only)</p>
+</header>
+
+<div class="container">
+    <h2>Book Now</h2>
+
+    <form onsubmit="sendText(event)">
+        <input type="tel" id="phone" placeholder="Your Phone Number" required>
+
+        <select id="service" required>
+            <option value="">Select Service</option>
+            <option>Basic Wash</option>
+            <option>Premium Wash</option>
+            <option>Full Detail</option>
+        </select>
+
+        <select id="time" required>
+            <option value="">Select Time</option>
+            <option>9:00 AM</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>1:00 PM</option>
+            <option>2:00 PM</option>
+            <option>3:00 PM</option>
+            <option>4:00 PM</option>
+        </select>
+
+        <button type="submit">Book Appointment</button>
+    </form>
+</div>
+
+<script>
+function sendText(event) {
+    event.preventDefault();
+
+    let phone = document.getElementById("phone").value;
+    let service = document.getElementById("service").value;
+    let time = document.getElementById("time").value;
+
+    let message = `New Booking:%0APhone: ${phone}%0AService: ${service}%0ATime: ${time}`;
+
+    window.location.href = `sms:+17722712246?body=${message}`;
+}
+</script>
+
+</body>
+</html>
